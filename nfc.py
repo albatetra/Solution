@@ -2,8 +2,9 @@ import MFRC522
 
 def readNfc():
     reading = True
+    MIFAREReader = MFRC522.MFRC522()
     while reading:
-        MIFAREReader = MFRC522.MFRC522()
+        
 
         #while continue_reading:
         (status,TagType) = MIFAREReader.MFRC522_Request(MIFAREReader.PICC_REQIDL)
