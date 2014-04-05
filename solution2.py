@@ -15,7 +15,7 @@ from Adafruit_CharLCDPlate2 import Adafruit_CharLCDPlate2
 emptyLine = "                "
 lcd1 = Adafruit_CharLCDPlate()
 lcd2 = Adafruit_CharLCDPlate2()
-lcd1.begin(16, 2)
+lcd1.begin(20, 4)
 lcd2.begin(20, 4);
 lcd1.clear()
 lcd2.clear()
