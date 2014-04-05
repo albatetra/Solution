@@ -13,11 +13,11 @@ from Adafruit_CharLCDPlate import Adafruit_CharLCDPlate
 from Adafruit_CharLCDPlate2 import Adafruit_CharLCDPlate2
 
 emptyLine = "                "
-lcd = Adafruit_CharLCDPlate()
-lcd.begin(16, 2)
-lcd.clear()
-lcd.message("Welcome.\nStarting...")
-lcd.backlight(lcd.ON)
+lcd1 = Adafruit_CharLCDPlate()
+lcd1.begin(16, 2)
+lcd1.clear()
+lcd1.message("Welcome.\nStarting...")
+lcd1.backlight(lcd.ON)
 time.sleep(2)
 def sendPOST (message):
 
@@ -68,41 +68,41 @@ try:
         ch = "x"
         index = 0
         maxLength = 16;
-        lcd.clear()
+        lcd1.clear()
         print "0 card - 1 key"
-        lcd.message("0 card - 1 key")
+        lcd1.message("0 card - 1 key")
 
         #wait for the user selection: 0 for card reader - 1 for key a password
         while (ch != '0') and (ch != "1"):
 
             ch = getch()
 
-        lcd.clear();
-        lcd.blink();
+        lcd1.clear();
+        lcd1.blink();
 
         if (ch == "0"):
             print "Waiting for card"
-            lcd.message("Waiting for card\n")
+            lcd1.message("Waiting for card\n")
             data = nfc.readNfc()
-            lcd.message("Authenticating..\n")
+            lcd1.message("Authenticating..\n")
             response = sendPOST(data)
-            lcd.message(response)
+            lcd1.message(response)
             #other actions will follow once you know what to do once the autenthication process suceeded
 
         if (ch == "1"):
-            lcd.clear()
-            lcd.message("Type password:\n")
+            lcd1.clear()
+            lcd1.message("Type password:\n")
             while (ord(ch) != 10):
                 ch = getch()
                 msg = msg + ch
-                lcd.message("*")
+                lcd1.message("*")
                 print msg
 
-            lcd.noBlink()
-            lcd.clear()
-            lcd.message("Authenticating..\n")
+            lcd1.noBlink()
+            lcd1.clear()
+            lcd1.message("Authenticating..\n")
             response = sendPOST(msg)
-            lcd.message(response)
+            lcd1.message(response)
             print response
 
 
@@ -112,7 +112,7 @@ try:
 
 except KeyboardInterrupt:
     GPIO.cleanup()
-    lcd.clear()
-    lcd.noBlink()
-    lcd.backlight(lcd.OFF)
+    lcd1.clear()
+    lcd1.noBlink()
+    lcd1.backlight(lcd.OFF)
     pass
