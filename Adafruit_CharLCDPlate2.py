@@ -11,7 +11,7 @@
 from Adafruit_I2C import Adafruit_I2C
 from time import sleep
 
-class Adafruit_CharLCDPlate(Adafruit_I2C):
+class Adafruit_CharLCDPlate2(Adafruit_I2C):
 
     # ----------------------------------------------------------------------
     # Constants
