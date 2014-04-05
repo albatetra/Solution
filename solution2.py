@@ -10,6 +10,7 @@ import os
 import RPi.GPIO as GPIO
 import nfc
 from Adafruit_CharLCDPlate import Adafruit_CharLCDPlate
+from Adafruit_CharLCDPlate2 import Adafruit_CharLCDPlate2
 
 emptyLine = "                "
 lcd = Adafruit_CharLCDPlate()
