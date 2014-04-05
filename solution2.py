@@ -14,8 +14,11 @@ from Adafruit_CharLCDPlate2 import Adafruit_CharLCDPlate2
 
 emptyLine = "                "
 lcd1 = Adafruit_CharLCDPlate()
+lcd2 = Adafruit_CharLCDPlate2()
 lcd1.begin(16, 2)
+lcd2.begin(20, 4);
 lcd1.clear()
+lcd2.clear()
 lcd1.message("Welcome.\nStarting...")
 lcd1.backlight(lcd.ON)
 time.sleep(2)
@@ -84,9 +87,9 @@ try:
             print "Waiting for card"
             lcd1.message("Waiting for card\n")
             data = nfc.readNfc()
-            lcd1.message("Authenticating..\n")
+            lcd2.message("Authenticating..\n")
             response = sendPOST(data)
-            lcd1.message(response)
+            lcd2.message(response)
             #other actions will follow once you know what to do once the autenthication process suceeded
 
         if (ch == "1"):
@@ -100,9 +103,10 @@ try:
 
             lcd1.noBlink()
             lcd1.clear()
-            lcd1.message("Authenticating..\n")
+            lcd2.clear()
+            lcd2.message("Authenticating..\n")
             response = sendPOST(msg)
-            lcd1.message(response)
+            lcd2.message(response)
             print response
 
 
